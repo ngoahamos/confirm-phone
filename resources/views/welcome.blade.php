@@ -16,7 +16,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
-                <h2 class="heading-section">Confirm Phone</h2>
+                <h2 class="heading-section">Santa</h2>
 
             </div>
 
@@ -53,8 +53,8 @@
 
         document.addEventListener('DOMContentLoaded', (event) => {
             Swal.fire(
-                'Failed',
-                'Phone number does not match our record',
+                'Oooops!',
+                'This package is not for you.',
                 'error'
             )
         });
@@ -69,8 +69,8 @@
 
         document.addEventListener('DOMContentLoaded', (event) => {
             Swal.fire(
-                'Success!',
-                'Phone number confirmed.',
+                'Hurraaaay!!!',
+                'This package is yours.',
                 'success'
             )
         });
