@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{asset('/style.css')}}" >
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 <body>
@@ -16,24 +17,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6 text-center mb-5">
                 <h2 class="heading-section">Confirm Phone</h2>
-                @if(session()->has('error'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Phone number does not match our record
 
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
-                @if(session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    Phone number confirmed successfully.
-
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                @endif
             </div>
 
         </div>
@@ -62,5 +46,38 @@
 </section>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+
+@if (session()->has('error'))
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            Swal.fire(
+                'Failed',
+                'Phone number does not match our record',
+                'error'
+            )
+        });
+
+    </script>
+
+
+@endif
+@if (session()->has('success'))
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            Swal.fire(
+                'Success!',
+                'Phone number confirmed.',
+                'success'
+            )
+        });
+
+    </script>
+
+
+@endif
 </body>
 </html>
